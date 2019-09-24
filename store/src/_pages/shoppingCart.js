@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table, Button, Panel } from 'react-bootstrap';
 import { removeFromCart } from '../_actions';
 import { connect } from 'react-redux';
-import { ProductPage} from './products.page1';
+
 
 
 const styles = {
@@ -17,7 +17,7 @@ const ShoppingCart = (props) => {
     // render() {
     return (
         <div>
-            {/* // <Panel header="Shopping Cart"> */}
+         
             <Table fill>
                 <tbody>
                     {props.cart.map(product =>

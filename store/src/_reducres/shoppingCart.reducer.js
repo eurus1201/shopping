@@ -2,7 +2,7 @@ import {shoppingCartConstant } from "../_constants";
 // import { ADD_TO_CART } from "../_actions";
 
 const initialState = {
-    cart :{},
+    cart :[],
     data :[],
   }
 
@@ -16,8 +16,8 @@ export const shoppingCart = ( state=initialState , action ) => {
         //         cart: [...state.cart, action.payload]
         //     };
             case shoppingCartConstant.ADD_TO_CART:
-            if (action.payload && action.payload.cart) {
-                return { ...state, ...action.payload.cart };
+            if (action.payload) {
+                return { ...state, cart: [...state.cart, action.payload]};
             }
             return state;
 
