@@ -1,6 +1,6 @@
 import React from 'react';
 import './_styles/App.scss';
-import { LoginPage,RegisterPage,MainPage, ProductPage,List } from "./_pages";
+import { LoginPage,RegisterPage,MainPage, ProductPage } from "./_pages";
 import { BrowserRouter as Router, Route ,Switch } from "react-router-dom";
 import {PrivateRoute} from './_routes/privateRoute';
 import {history} from './_helpers/history';

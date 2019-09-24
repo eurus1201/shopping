@@ -56,8 +56,7 @@ const RegisterPage = (props) => {
                 <label htmlFor="FullName"> Full Name</label>
                 <input type="text" id="name" className="form-control" name="name" value={values.name} onChange={handleChange} required />
                
-                    <div className="help-block">First Name is required</div>
-                }
+                 
             </div>
 
             <div className={'form-group'}>

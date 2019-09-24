@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button , Col,Row } from 'react-bootstrap';
+import { Button, Col, Row, Navbar } from 'react-bootstrap';
 import { connect } from "react-redux";
 import { getproducts, addToCart } from "../_actions";
 import { withRouter } from "react-router-dom";
@@ -13,9 +13,18 @@ const styles = {
     },
     product: {
         width: '20vw',
-        marginLeft: 10,
-        marginRight: 10,
-        marginTop: 10
+    
+        margin: 10
+    },
+    images: {
+        width: '16vw',
+        height: '15vw',
+        padding: '1vw',
+        alignItems: 'center',
+        margin: 'auto', 
+        display: 'flex',
+        justifyContent: 'center',
+    
     }
 };
 
@@ -32,15 +41,19 @@ class ProductPage extends Component {
             products,
             request
         } = this.props;
-
+        
         return (
             request ? 'loading ...' :
+            <div>
+         
             <Row>
                 <Col sm={8}>
                     <div style={styles.products}>
                         {products && products.map(product =>
                             <div className="thumbnail" style={styles.product} key={product.id}>
-                                <img src={product.images[0]} alt={product.name} />
+                                <div style={styles.images}>
+                                    {product.images.length > 0 ? (<img src={product.images[0].src} alt={product.name} style={styles.images} />) : ('')}
+                                </div>
                                 <div className="caption">
                                     <h4>{product.name}</h4>
                                     <p>
@@ -59,6 +72,8 @@ class ProductPage extends Component {
                     </Col>
 
             </Row>
+
+            </div>
         );
     }
 }
