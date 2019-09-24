@@ -1,21 +1,21 @@
 import React, { Component } from "react";
-import { Navbar, Grid, Row, Col, Button } from 'react-bootstrap';
+import { Button , Col,Row } from 'react-bootstrap';
 import { connect } from "react-redux";
 import { getproducts, addToCart } from "../_actions";
 import { withRouter } from "react-router-dom";
-import ShoppingCart from "./shoppingCart";
-
+import ShoppingCart from "./shoppingCart"
 
 const styles = {
     products: {
         display: 'flex',
         alignItems: 'stretch',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
     },
     product: {
-        width: '220px',
+        width: '20vw',
         marginLeft: 10,
-        marginRight: 10
+        marginRight: 10,
+        marginTop: 10
     }
 };
 
@@ -35,7 +35,8 @@ class ProductPage extends Component {
 
         return (
             request ? 'loading ...' :
-                <div>
+            <Row>
+                <Col sm={8}>
                     <div style={styles.products}>
                         {products && products.map(product =>
                             <div className="thumbnail" style={styles.product} key={product.id}>
@@ -50,11 +51,14 @@ class ProductPage extends Component {
                         )}
 
                     </div>
-
-                    <div>
+                    </Col>
+                    <Col sm={4}>
+                        <div>
                         <ShoppingCart />
-                    </div>
-                </div>
+                        </div>
+                    </Col>
+
+            </Row>
         );
     }
 }
