@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button } from 'react-bootstrap';
+import { Navbar, Grid, Row, Col, Button } from 'react-bootstrap';
 import { connect } from "react-redux";
 import { getproducts, addToCart } from "../_actions";
 import { withRouter } from "react-router-dom";
@@ -35,22 +35,26 @@ class ProductPage extends Component {
 
         return (
             request ? 'loading ...' :
-
-                <div style={styles.products}>
-                    {products && products.map(product =>
-                        <div className="thumbnail" style={styles.product} key={product.id}>
-                            <img src={product.images[0]} alt={product.name} />
-                            <div className="caption">
-                                <h4>{product.name}</h4>
-                                <p>
-                                    <Button bsStyle="primary" onClick={() => this.props.addToCart(product)} role="button" e>${product.price} </Button>
-                                </p>
+                <div>
+                    <div style={styles.products}>
+                        {products && products.map(product =>
+                            <div className="thumbnail" style={styles.product} key={product.id}>
+                                <img src={product.images[0]} alt={product.name} />
+                                <div className="caption">
+                                    <h4>{product.name}</h4>
+                                    <p>
+                                        <Button bsStyle="primary" onClick={() => this.props.addToCart(product)} role="button" e>${product.price} </Button>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    )}
-                    <ShoppingCart/>
-                </div>
+                        )}
 
+                    </div>
+
+                    <div>
+                        <ShoppingCart />
+                    </div>
+                </div>
         );
     }
 }
